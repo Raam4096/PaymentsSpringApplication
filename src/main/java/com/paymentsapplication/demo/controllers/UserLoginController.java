@@ -18,20 +18,31 @@ public class UserLoginController {
 	
 	@Autowired
 	private HttpSession session;
+	
+	@GetMapping("/startUpLogin")
+	public String displayLoginPage(Model model)
+	{
+		model.addAttribute("userLogin",new UserLoginModel());
+		return "login";
+	}
 	@GetMapping("/login")
 	public String handleLogin(@ModelAttribute  UserLoginModel userLogin,Model model) {
 		UserDetailsEntity user=new UserDetailsEntity();
 		user.setUserName(userLogin.getUsername());
 		user.setPassword(userLogin.getPassword());
 		UserDetailsEntity userLoginDetails=userLoginService.userValidation(user);
+		String page="";
 		if(userLoginDetails!=null) {
 			System.out.println("logged in successfully");
 			session.setAttribute("userProfile",userLoginDetails);
+			page="dashboard";
+			
 		}
 		else {
 			System.out.println("login failed");
+			page="registration";
 		}
-		return "profile";
+		return page;
 	}
 	}
 

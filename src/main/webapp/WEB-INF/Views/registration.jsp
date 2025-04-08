@@ -103,7 +103,7 @@ a:hover {
         
         <button type="submit">Sign Up</button>
     </form>
-    <p>Already have an account? <a href="login.html">Login</a></p>
+    <p>Already have an account? <a href="login.jsp">Login</a></p>
 </div>
 </body>
 </html>
