@@ -1,9 +1,12 @@
 package com.paymentsapplication.demo.entity;
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 @Entity
 @Table(name="user_details")
@@ -26,8 +29,16 @@ public class UserDetailsEntity {
 	private String email ;
 	@Column(name="address")
 	private String address;
+	@OneToMany(mappedBy="userId")
+	private List<BankAccountsDetailsEntity> banks;
 	public int getUser_id() {
 		return user_id;
+	}
+	public List<BankAccountsDetailsEntity> getBanks() {
+		return banks;
+	}
+	public void setBanks(List<BankAccountsDetailsEntity> banks) {
+		this.banks = banks;
 	}
 	public void setUser_id(int user_id) {
 		this.user_id = user_id;

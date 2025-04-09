@@ -3,6 +3,8 @@ package com.paymentsapplication.demo.entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -24,8 +26,8 @@ public class BankAccountsDetailsEntity {
 	private String bankAccountBranchLocation;
 	@Column(name="currentBalance")
 	private double currentBalance;
-	
-	@Column(name="userId")
+	@ManyToOne
+	@JoinColumn(name="user_id")
 	private int userId;
 	public int getBankAccountId() {
 		return bankAccountId;

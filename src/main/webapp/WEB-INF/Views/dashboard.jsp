@@ -138,33 +138,18 @@ body {
     <div class="account-info">
         <p><strong>Primary Bank Account No:</strong> </p>
         <p><strong>Account Balance:</strong> </p>
-        <p><strong>Wallet Balance:</strong>  <a href="/viewBankForm"><span style="color:red;">[+]</span></a></p>
+        <p><strong>Wallet Balance:</strong>  <span style="color:red;">[+]</span></p>
         <button class="send-money-btn">Send money</button>
     </div>
 
    
     <div class="bank-cards">
-        <div class="bank-card">
-            <p><strong>BANK NAME</strong></p>
-            <p>Bank Acct No: </p>
-            <p>Balance: </p>
-            <p>IFSC Code: </p>
-            <p>Branch: </p>
-            <span class="edit-btn">Edit</span>
-        </div>
-        <div class="bank-card">
-            <p><strong>BANK NAME</strong></p>
-            <p>Bank Acct No: </p>
-            <p>Balance: </p>
-            <p>IFSC Code: </p>
-            <p>Branch: </p>
-            <span class="edit-btn">Edit</span>
-        </div>
+    	<jsp:include page="bankAccounts.jsp">
         <div class="bank-card" style="border: 2px solid green; text-align:center;">
-            <p style="color:green; font-size:20px;">[+]</p>
+            <p style="color:green; font-size:20px;"><a href="/viewBankForm" style="text-decoration:none">[+]</a></p>
         </div>
     </div>
-
+	<form name="On-loadform" method="get" action="/viewBanks"></form>
     
     <div class="transaction-history">
         <h2>Recent 10 Txns List</h2>
